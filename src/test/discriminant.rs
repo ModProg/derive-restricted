@@ -15,14 +15,10 @@ fn default() -> Result<()> {
 	#[cfg(not(feature = "nightly"))]
 	let partial_ord = quote! {
 		const fn __discriminant(__this: &Test) -> isize {
-			const __VALIDATE_ISIZE_A: isize = 0;
-			const __VALIDATE_ISIZE_B: isize = (0) + 1;
-			const __VALIDATE_ISIZE_C: isize = (0) + 2;
-
 			match __this {
-				Test::A => __VALIDATE_ISIZE_A,
-				Test::B => __VALIDATE_ISIZE_B,
-				Test::C => __VALIDATE_ISIZE_C
+				Test::A => 0,
+				Test::B => (0) + 1,
+				Test::C => (0) + 2
 			}
 		}
 
@@ -65,10 +61,6 @@ fn default_clone() -> Result<()> {
 	};
 	#[cfg(not(feature = "nightly"))]
 	let partial_ord = quote! {
-		const __VALIDATE_ISIZE_A: isize = 0;
-		const __VALIDATE_ISIZE_B: isize = (0) + 1;
-		const __VALIDATE_ISIZE_C: isize = (0) + 2;
-
 		::core::cmp::PartialOrd::partial_cmp(&(::core::clone::Clone::clone(self) as isize), &(::core::clone::Clone::clone(__other) as isize))
 	};
 
@@ -119,10 +111,6 @@ fn default_copy() -> Result<()> {
 	};
 	#[cfg(not(feature = "nightly"))]
 	let partial_ord = quote! {
-		const __VALIDATE_ISIZE_A: isize = 0;
-		const __VALIDATE_ISIZE_B: isize = (0) + 1;
-		const __VALIDATE_ISIZE_C: isize = (0) + 2;
-
 		::core::cmp::PartialOrd::partial_cmp(&(*self as isize), &(*__other as isize))
 	};
 
@@ -165,14 +153,10 @@ fn default_reverse() -> Result<()> {
 	#[cfg(not(feature = "nightly"))]
 	let partial_ord = quote! {
 		const fn __discriminant(__this: &Test) -> isize {
-			const __VALIDATE_ISIZE_A: isize = 2;
-			const __VALIDATE_ISIZE_B: isize = 1;
-			const __VALIDATE_ISIZE_C: isize = 0;
-
 			match __this {
-				Test::A => __VALIDATE_ISIZE_A,
-				Test::B => __VALIDATE_ISIZE_B,
-				Test::C => __VALIDATE_ISIZE_C
+				Test::A => 2,
+				Test::B => 1,
+				Test::C => 0
 			}
 		}
 
@@ -216,16 +200,11 @@ fn default_mix() -> Result<()> {
 	#[cfg(not(feature = "nightly"))]
 	let partial_ord = quote! {
 		const fn __discriminant(__this: &Test) -> isize {
-			const __VALIDATE_ISIZE_A: isize = 1;
-			const __VALIDATE_ISIZE_B: isize = 0;
-			const __VALIDATE_ISIZE_C: isize = 2;
-			const __VALIDATE_ISIZE_D: isize = (2) + 1;
-
 			match __this {
-				Test::A => __VALIDATE_ISIZE_A,
-				Test::B => __VALIDATE_ISIZE_B,
-				Test::C => __VALIDATE_ISIZE_C,
-				Test::D => __VALIDATE_ISIZE_D
+				Test::A => 1,
+				Test::B => 0,
+				Test::C => 2,
+				Test::D => (2) + 1
 			}
 		}
 
@@ -270,18 +249,12 @@ fn default_skip() -> Result<()> {
 	#[cfg(not(feature = "nightly"))]
 	let partial_ord = quote! {
 		const fn __discriminant(__this: &Test) -> isize {
-			const __VALIDATE_ISIZE_A: isize = 0;
-			const __VALIDATE_ISIZE_B: isize = 3;
-			const __VALIDATE_ISIZE_C: isize = (3) + 1;
-			const __VALIDATE_ISIZE_D: isize = (3) + 2;
-			const __VALIDATE_ISIZE_E: isize = (3) + 3;
-
 			match __this {
-				Test::A => __VALIDATE_ISIZE_A,
-				Test::B => __VALIDATE_ISIZE_B,
-				Test::C => __VALIDATE_ISIZE_C,
-				Test::D => __VALIDATE_ISIZE_D,
-				Test::E => __VALIDATE_ISIZE_E
+				Test::A => 0,
+				Test::B => 3,
+				Test::C => (3) + 1,
+				Test::D => (3) + 2,
+				Test::E => (3) + 3
 			}
 		}
 
@@ -327,14 +300,10 @@ fn default_expr() -> Result<()> {
 	#[cfg(not(feature = "nightly"))]
 	let partial_ord = quote! {
 		const fn __discriminant(__this: &Test) -> isize {
-			const __VALIDATE_ISIZE_A: isize = isize::MAX - 2;
-			const __VALIDATE_ISIZE_B: isize = (isize::MAX - 2) + 1;
-			const __VALIDATE_ISIZE_C: isize = (isize::MAX - 2) + 2;
-
 			match __this {
-				Test::A => __VALIDATE_ISIZE_A,
-				Test::B => __VALIDATE_ISIZE_B,
-				Test::C => __VALIDATE_ISIZE_C
+				Test::A => isize::MAX - 2,
+				Test::B => (isize::MAX - 2) + 1,
+				Test::C => (isize::MAX - 2) + 2
 			}
 		}
 
@@ -378,14 +347,10 @@ fn repr_c() -> Result<()> {
 	#[cfg(not(feature = "nightly"))]
 	let partial_ord = quote! {
 		const fn __discriminant(__this: &Test) -> isize {
-			const __VALIDATE_ISIZE_A: isize = 0;
-			const __VALIDATE_ISIZE_B: isize = (0) + 1;
-			const __VALIDATE_ISIZE_C: isize = (0) + 2;
-
 			match __this {
-				Test::A => __VALIDATE_ISIZE_A,
-				Test::B => __VALIDATE_ISIZE_B,
-				Test::C => __VALIDATE_ISIZE_C
+				Test::A => 0,
+				Test::B => (0) + 1,
+				Test::C => (0) + 2
 			}
 		}
 
@@ -477,10 +442,6 @@ fn repr_c_clone() -> Result<()> {
 	};
 	#[cfg(not(feature = "nightly"))]
 	let partial_ord = quote! {
-		const __VALIDATE_ISIZE_A: isize = 0;
-		const __VALIDATE_ISIZE_B: isize = (0) + 1;
-		const __VALIDATE_ISIZE_C: isize = (0) + 2;
-
 		::core::cmp::PartialOrd::partial_cmp(&(::core::clone::Clone::clone(self) as isize), &(::core::clone::Clone::clone(__other) as isize))
 	};
 
@@ -583,10 +544,6 @@ fn repr_c_copy() -> Result<()> {
 	};
 	#[cfg(not(feature = "nightly"))]
 	let partial_ord = quote! {
-		const __VALIDATE_ISIZE_A: isize = 0;
-		const __VALIDATE_ISIZE_B: isize = (0) + 1;
-		const __VALIDATE_ISIZE_C: isize = (0) + 2;
-
 		::core::cmp::PartialOrd::partial_cmp(&(*self as isize), &(*__other as isize))
 	};
 
@@ -672,14 +629,10 @@ fn repr_c_reverse() -> Result<()> {
 	#[cfg(not(feature = "nightly"))]
 	let partial_ord = quote! {
 		const fn __discriminant(__this: &Test) -> isize {
-			const __VALIDATE_ISIZE_A: isize = 2;
-			const __VALIDATE_ISIZE_B: isize = 1;
-			const __VALIDATE_ISIZE_C: isize = 0;
-
 			match __this {
-				Test::A => __VALIDATE_ISIZE_A,
-				Test::B => __VALIDATE_ISIZE_B,
-				Test::C => __VALIDATE_ISIZE_C
+				Test::A => 2,
+				Test::B => 1,
+				Test::C => 0
 			}
 		}
 
@@ -724,16 +677,11 @@ fn repr_c_mix() -> Result<()> {
 	#[cfg(not(feature = "nightly"))]
 	let partial_ord = quote! {
 		const fn __discriminant(__this: &Test) -> isize {
-			const __VALIDATE_ISIZE_A: isize = 1;
-			const __VALIDATE_ISIZE_B: isize = 0;
-			const __VALIDATE_ISIZE_C: isize = 2;
-			const __VALIDATE_ISIZE_D: isize = (2) + 1;
-
 			match __this {
-				Test::A => __VALIDATE_ISIZE_A,
-				Test::B => __VALIDATE_ISIZE_B,
-				Test::C => __VALIDATE_ISIZE_C,
-				Test::D => __VALIDATE_ISIZE_D
+				Test::A => 1,
+				Test::B => 0,
+				Test::C => 2,
+				Test::D => (2) + 1
 			}
 		}
 
@@ -779,18 +727,12 @@ fn repr_c_skip() -> Result<()> {
 	#[cfg(not(feature = "nightly"))]
 	let partial_ord = quote! {
 		const fn __discriminant(__this: &Test) -> isize {
-			const __VALIDATE_ISIZE_A: isize = 0;
-			const __VALIDATE_ISIZE_B: isize = 3;
-			const __VALIDATE_ISIZE_C: isize = (3) + 1;
-			const __VALIDATE_ISIZE_D: isize = (3) + 2;
-			const __VALIDATE_ISIZE_E: isize = (3) + 3;
-
 			match __this {
-				Test::A => __VALIDATE_ISIZE_A,
-				Test::B => __VALIDATE_ISIZE_B,
-				Test::C => __VALIDATE_ISIZE_C,
-				Test::D => __VALIDATE_ISIZE_D,
-				Test::E => __VALIDATE_ISIZE_E
+				Test::A => 0,
+				Test::B => 3,
+				Test::C => (3) + 1,
+				Test::D => (3) + 2,
+				Test::E => (3) + 3
 			}
 		}
 
@@ -837,14 +779,10 @@ fn repr_c_expr() -> Result<()> {
 	#[cfg(not(feature = "nightly"))]
 	let partial_ord = quote! {
 		const fn __discriminant(__this: &Test) -> isize {
-			const __VALIDATE_ISIZE_A: isize = isize::MAX - 2;
-			const __VALIDATE_ISIZE_B: isize = (isize::MAX - 2) + 1;
-			const __VALIDATE_ISIZE_C: isize = (isize::MAX - 2) + 2;
-
 			match __this {
-				Test::A => __VALIDATE_ISIZE_A,
-				Test::B => __VALIDATE_ISIZE_B,
-				Test::C => __VALIDATE_ISIZE_C
+				Test::A => isize::MAX - 2,
+				Test::B => (isize::MAX - 2) + 1,
+				Test::C => (isize::MAX - 2) + 2
 			}
 		}
 
