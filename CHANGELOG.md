@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Allow skipping fields for `Clone`, calling `Default::default()` instead.
+  **Note:** `Clone` is excluded from `#[derive_where(skip)]` to avoid this being a breaking change.
 
 ### Changed
 - Use the `Copy` implementation for `Clone` and the `Ord` implementation for
